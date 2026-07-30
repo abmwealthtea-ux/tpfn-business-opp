@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Marketing Site Order | TPFN Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#25282d;
+    --charcoal-deep:#1b1d21;
+    --cloud:#f5f6f8;
+    --white:#ffffff;
+    --carolina:#4b9cd3;
+    --carolina-deep:#2f7db3;
+    --gold:#c9a54a;
+    --ink:#2b2e33;
+    --ink-soft:#5c6168;
+    --line:#e3e6ea;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Inter',Arial,sans-serif;
+    background:var(--cloud);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  /* ── Header ─────────────────────────────── */
+  .masthead{
+    background:linear-gradient(160deg,var(--charcoal-deep) 0%,var(--charcoal) 60%,#31353c 100%);
+    color:var(--white);
+    padding:56px 24px 48px;
+    text-align:center;
+    border-bottom:4px solid var(--gold);
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    border:1px solid rgba(201,165,74,.45);
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Marcellus',Georgia,serif;
+    font-weight:400;
+    font-size:clamp(28px,5vw,42px);
+    letter-spacing:.01em;
+    margin-bottom:12px;
+  }
+  .masthead p{
+    max-width:600px;
+    margin:0 auto;
+    color:#c9cdd3;
+    font-size:16px;
+  }
+  .masthead p strong{color:var(--white);font-weight:600;}
+  /* ── Form shell ─────────────────────────── */
+  .wrap{max-width:680px;margin:-24px auto 64px;padding:0 20px;}
+  form{
+    background:var(--white);
+    border-radius:14px;
+    box-shadow:0 12px 40px rgba(27,29,33,.12);
+    padding:8px 0 40px;
+    overflow:hidden;
+  }
+  fieldset{border:none;padding:32px 36px 8px;}
+  fieldset + fieldset{border-top:1px solid var(--line);}
+  legend{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding-top:32px;
+    margin-bottom:6px;
+    float:left;
+    width:100%;
+  }
+  .step-mark{
+    flex:0 0 auto;
+    width:34px;height:34px;
+    border-radius:50%;
+    background:var(--charcoal);
+    color:var(--gold);
+    font-family:'Marcellus',Georgia,serif;
+    font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step-title{
+    font-family:'Marcellus',Georgia,serif;
+    font-size:22px;
+    color:var(--charcoal);
+  }
+  .step-note{
+    clear:both;
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:4px 0 22px 48px;
+  }
+  .field{margin:0 0 22px 48px;}
+  label{
+    display:block;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .optional{font-weight:400;color:var(--ink-soft);}
+  .hint{
+    display:block;
+    font-size:13px;
+    font-weight:400;
+    color:var(--ink-soft);
+    margin:-2px 0 8px;
+  }
+  input[type=text],input[type=email],input[type=tel],input[type=url],textarea{
+    width:100%;
+    padding:12px 14px;
+    font-family:'Inter',Arial,sans-serif;
+    font-size:15px;
+    color:var(--ink);
+    background:#fbfcfd;
+    border:1px solid var(--line);
+    border-radius:8px;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  input:focus,textarea:focus{
+    outline:none;
+    border-color:var(--carolina);
+    box-shadow:0 0 0 3px rgba(75,156,211,.18);
+  }
+  textarea{resize:vertical;min-height:96px;}
+  .choices{display:flex;flex-direction:column;gap:10px;}
+  .choice{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:15px;font-weight:400;
+    padding:14px 14px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#fbfcfd;
+    cursor:pointer;
+  }
+  .choice input{margin-top:3px;accent-color:var(--carolina-deep);}
+  .choice:has(input:checked){
+    border-color:var(--carolina);
+    box-shadow:0 0 0 3px rgba(75,156,211,.14);
+    background:var(--white);
+  }
+  .choice .choice-title{font-weight:600;display:block;}
+  .choice .choice-sub{display:block;font-size:13px;color:var(--ink-soft);}
+  .price-tag{
+    display:inline-block;
+    font-family:'Marcellus',Georgia,serif;
+    font-size:18px;
+    color:var(--charcoal);
+    background:linear-gradient(135deg,#f0e2bd,#e6cf93);
+    border-radius:6px;
+    padding:1px 10px;
+    margin-left:6px;
+  }
+  .best-value{
+    display:inline-block;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--white);
+    background:var(--carolina-deep);
+    border-radius:999px;
+    padding:2px 10px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+  .domain-block{
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:8px;
+    padding:18px 18px 4px;
+    margin-bottom:18px;
+    background:#fdfcf9;
+  }
+  .domain-block h3{
+    font-family:'Marcellus',Georgia,serif;
+    font-weight:400;
+    font-size:17px;
+    color:var(--charcoal);
+    margin-bottom:12px;
+  }
+  .domain-block .field{margin-left:0;}
+  .hidden{display:none;}
+  /* ── Submit ─────────────────────────────── */
+  .submit-zone{padding:28px 36px 0;text-align:center;}
+  button[type=submit]{
+    font-family:'Inter',Arial,sans-serif;
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:.02em;
+    color:var(--charcoal-deep);
+    background:linear-gradient(135deg,#d9b85f,var(--gold));
+    border:none;
+    border-radius:999px;
+    padding:15px 46px;
+    cursor:pointer;
+    box-shadow:0 6px 18px rgba(201,165,74,.35);
+    transition:transform .12s, box-shadow .12s;
+  }
+  button[type=submit]:hover{transform:translateY(-1px);box-shadow:0 9px 24px rgba(201,165,74,.45);}
+  button[type=submit]:focus-visible{outline:3px solid var(--carolina);outline-offset:3px;}
+  .assurance{font-size:13px;color:var(--ink-soft);margin-top:14px;}
+  footer{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    padding:0 20px 48px;
+  }
+  @media (max-width:560px){
+    fieldset{padding:24px 20px 4px;}
+    .field,.step-note{margin-left:0;}
+    .submit-zone{padding:24px 20px 0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    button[type=submit]{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <span class="eyebrow">TPFN Team Onboarding</span>
+  <h1>Your Personal Marketing Sites</h1>
+  <p>Get your own professionally built TPFN marketing sites — the <strong>Business Opportunity site</strong> and the <strong>Savings Membership site</strong> — on your own custom domain, with every lead and every sign-up credited directly to <strong>you</strong>. Complete the steps below to place your order.</p>
+</header>
+
+<div class="wrap">
+  <!-- IMPORTANT: confirm the email address in the line below before publishing -->
+  <form action="https://formsubmit.co/abmwealthtea@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Team Marketing Site Order">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="_honey" style="display:none">
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">1</span>
+        <span class="step-title">About You</span>
+      </legend>
+      <p class="step-note">Tell us who you are and how to reach you.</p>
+
+      <div class="field">
+        <label for="fullname">Full name</label>
+        <input type="text" id="fullname" name="Full Name" required autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="displayname">Name to display on your site(s)</label>
+        <span class="hint">Exactly how you want visitors to see it — for example: "Coach Mike" or "John A. Smith"</span>
+        <input type="text" id="displayname" name="Display Name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Best email address</label>
+        <span class="hint">Every lead from your site(s) will be delivered to this inbox, so choose one you check daily.</span>
+        <input type="email" id="email" name="Lead Email" required autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone number <span class="optional">(optional)</span></label>
+        <span class="hint">Only needed if you want it shown on your site(s).</span>
+        <input type="tel" id="phone" name="Phone" autocomplete="tel">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">2</span>
+        <span class="step-title">Your TPFN Links</span>
+      </legend>
+      <p class="step-note">This step makes sure every sign-up is credited to <em>you</em>. Log in to your TPFN back office to find these.</p>
+
+      <div class="field">
+        <label for="username">Your TPFN username</label>
+        <span class="hint">The name that appears in your personal links — for example, in <strong>coacht</strong>.tpfn.fyi the username is "coacht".</span>
+        <input type="text" id="username" name="TPFN Username" required>
+      </div>
+
+      <div class="field">
+        <label for="fyi">Your personal sign-up link</label>
+        <span class="hint">Copy and paste it here so we can double-check it. It looks like: https://yourname.tpfn.fyi</span>
+        <input type="url" id="fyi" name="Sign-Up Link (tpfn.fyi)" placeholder="https://" required>
+      </div>
+
+      <div class="field">
+        <label for="biz">Your replicated site link</label>
+        <span class="hint">It looks like: https://yourname.tpfn.biz</span>
+        <input type="url" id="biz" name="Replicated Site Link (tpfn.biz)" placeholder="https://" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">3</span>
+        <span class="step-title">Choose Your Package</span>
+      </legend>
+      <p class="step-note">Select the option that fits you best. Payment instructions will be sent after you submit your order.</p>
+
+      <div class="field">
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="Package" value="Complete Package - $299 (both sites, 2 domains, 12 months hosting)" required>
+            <span>
+              <span class="choice-title">Complete Package <span class="price-tag">$299</span> <span class="best-value">Best Value</span></span>
+              <span class="choice-sub">Both sites — the Business Opportunity site and the Savings Membership site — plus 2 custom domains and 12 months of hosting for both. Everything included, one price.</span>
+            </span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="Package" value="Single Site - $99 setup + $25 domain + $10/month hosting">
+            <span>
+              <span class="choice-title">Single Site <span class="price-tag">$99</span></span>
+              <span class="choice-sub">One site of your choice. $99 setup, plus $25 for your custom domain and $10 per month for hosting.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field hidden" id="which-site">
+        <label>Which site would you like?</label>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="Single Site Choice" value="Business Opportunity Site">
+            <span>
+              <span class="choice-title">Business Opportunity Site</span>
+              <span class="choice-sub">Presents the TPFN opportunity, the ways to earn, and invites visitors to join your team.</span>
+            </span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="Single Site Choice" value="Savings Membership Site">
+            <span>
+              <span class="choice-title">Savings Membership Site</span>
+              <span class="choice-sub">Presents the everyday-savings membership for customers who just want the discounts.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">4</span>
+        <span class="step-title">Your Domain Names</span>
+      </legend>
+      <p class="step-note">Your domain is your site's web address — for example, <strong>mikessavingsclub.com</strong>. Give us <strong>3 name ideas in order of preference</strong> for each site. If your first choice is already taken, we'll register the next one on your list.</p>
+
+      <div class="field" id="domain-placeholder">
+        <span class="hint">Please choose your package in Step 3 first — your domain section will appear here.</span>
+      </div>
+
+      <div class="domain-block hidden" id="domains-bizopp">
+        <h3>Business Opportunity Site — Domain Choices</h3>
+        <div class="field">
+          <label for="biz1">1st choice</label>
+          <input type="text" id="biz1" name="Biz Opp Domain - 1st Choice" placeholder="example: earnwithmike.com">
+        </div>
+        <div class="field">
+          <label for="biz2">2nd choice</label>
+          <input type="text" id="biz2" name="Biz Opp Domain - 2nd Choice">
+        </div>
+        <div class="field">
+          <label for="biz3">3rd choice</label>
+          <input type="text" id="biz3" name="Biz Opp Domain - 3rd Choice">
+        </div>
+      </div>
+
+      <div class="domain-block hidden" id="domains-savings">
+        <h3>Savings Membership Site — Domain Choices</h3>
+        <div class="field">
+          <label for="sav1">1st choice</label>
+          <input type="text" id="sav1" name="Savings Domain - 1st Choice" placeholder="example: mikessavingsclub.com">
+        </div>
+        <div class="field">
+          <label for="sav2">2nd choice</label>
+          <input type="text" id="sav2" name="Savings Domain - 2nd Choice">
+        </div>
+        <div class="field">
+          <label for="sav3">3rd choice</label>
+          <input type="text" id="sav3" name="Savings Domain - 3rd Choice">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">5</span>
+        <span class="step-title">Finishing Touches</span>
+      </legend>
+      <p class="step-note">A couple of quick choices, then you're done.</p>
+
+      <div class="field">
+        <label>Would you like your photo on your site(s)?</label>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="Photo Preference" value="Yes - I will send a photo" required> Yes — I'll send a professional photo when asked</label>
+          <label class="choice"><input type="radio" name="Photo Preference" value="No - keep the standard design"> No — keep the standard site design</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything else we should know? <span class="optional">(optional)</span></label>
+        <textarea id="notes" name="Notes" placeholder="Special requests, questions, or details…"></textarea>
+      </div>
+    </fieldset>
+
+    <div class="submit-zone">
+      <button type="submit">Place My Order</button>
+      <p class="assurance">After you submit, you'll receive payment instructions by email. Your build begins as soon as payment is received. Your information is used only to build your personal marketing sites — nothing is shared or sold.</p>
+    </div>
+  </form>
+</div>
+
+<footer>Questions? Reply to the confirmation email and we'll help you out.</footer>
+
+<script>
+(function(){
+  var packageRadios = document.querySelectorAll('input[name="Package"]');
+  var siteRadios = document.querySelectorAll('input[name="Single Site Choice"]');
+  var whichSite = document.getElementById('which-site');
+  var placeholder = document.getElementById('domain-placeholder');
+  var blockBiz = document.getElementById('domains-bizopp');
+  var blockSav = document.getElementById('domains-savings');
+
+  function setRequired(block, on){
+    block.querySelectorAll('input[type=text]').forEach(function(inp){
+      if(on){ inp.setAttribute('required',''); }
+      else { inp.removeAttribute('required'); inp.value = inp.value; }
+    });
+  }
+  function show(el){ el.classList.remove('hidden'); }
+  function hide(el){ el.classList.add('hidden'); }
+
+  function refresh(){
+    var pkg = document.querySelector('input[name="Package"]:checked');
+    var single = document.querySelector('input[name="Single Site Choice"]:checked');
+
+    hide(blockBiz); hide(blockSav);
+    setRequired(blockBiz,false); setRequired(blockSav,false);
+
+    if(!pkg){ show(placeholder); hide(whichSite); return; }
+
+    if(pkg.value.indexOf('Complete') === 0){
+      hide(whichSite);
+      siteRadios.forEach(function(r){ r.removeAttribute('required'); });
+      hide(placeholder);
+      show(blockBiz); show(blockSav);
+      setRequired(blockBiz,true); setRequired(blockSav,true);
+    } else {
+      show(whichSite);
+      siteRadios.forEach(function(r){ r.setAttribute('required',''); });
+      if(!single){
+        show(placeholder);
+        placeholder.querySelector('.hint').textContent = 'Please choose which site you want in Step 3 — your domain section will appear here.';
+        return;
+      }
+      hide(placeholder);
+      if(single.value === 'Business Opportunity Site'){
+        show(blockBiz); setRequired(blockBiz,true);
+      } else {
+        show(blockSav); setRequired(blockSav,true);
+      }
+    }
+  }
+
+  packageRadios.forEach(function(r){ r.addEventListener('change', refresh); });
+  siteRadios.forEach(function(r){ r.addEventListener('change', refresh); });
+  refresh();
+})();
+</script>
+
+</body>
+</html>
