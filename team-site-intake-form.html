@@ -307,6 +307,7 @@
   <form action="https://formsubmit.co/abmwealthtea@gmail.com" method="POST">
     <input type="hidden" name="_subject" value="New Team Marketing Site Order">
     <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" id="next-url" value="https://buy.stripe.com/dRm6oA1fd5Ond2vcAWdZ603">
     <input type="text" name="_honey" style="display:none">
 
     <fieldset>
@@ -371,7 +372,7 @@
         <span class="step-mark">3</span>
         <span class="step-title">Choose Your Package</span>
       </legend>
-      <p class="step-note">Select the option that fits you best. Payment instructions will be sent after you submit your order.</p>
+      <p class="step-note">Select the option that fits you best. You'll be taken straight to secure checkout when you place your order.</p>
 
       <div class="field">
         <div class="choices">
@@ -386,7 +387,7 @@
             <input type="radio" name="Package" value="Single Site - $99 setup + $25 domain + $10/month hosting">
             <span>
               <span class="choice-title">Single Site <span class="price-tag">$99</span></span>
-              <span class="choice-sub">One site of your choice. $99 setup, plus $25 for your custom domain and $10 per month for hosting.</span>
+              <span class="choice-sub">One site of your choice. $99 setup + $25 custom domain + $10/month hosting. <strong>$134 due today at checkout</strong>, then just $10 a month.</span>
             </span>
           </label>
         </div>
@@ -480,7 +481,7 @@
 
     <div class="submit-zone">
       <button type="submit">Place My Order</button>
-      <p class="assurance">After you submit, you'll receive payment instructions by email. Your build begins as soon as payment is received. Your information is used only to build your personal marketing sites — nothing is shared or sold.</p>
+      <p class="assurance">When you place your order, you'll be taken straight to our secure Stripe checkout to complete payment. Your build begins as soon as payment is received. Your information is used only to build your personal marketing sites — nothing is shared or sold.</p>
     </div>
   </form>
 </div>
@@ -495,6 +496,9 @@
   var placeholder = document.getElementById('domain-placeholder');
   var blockBiz = document.getElementById('domains-bizopp');
   var blockSav = document.getElementById('domains-savings');
+  var nextUrl = document.getElementById('next-url');
+  var STRIPE_COMPLETE = 'https://buy.stripe.com/dRm6oA1fd5Ond2vcAWdZ603';
+  var STRIPE_SINGLE = 'https://buy.stripe.com/9B65kwga77Wv8Mf6cydZ604';
 
   function setRequired(block, on){
     block.querySelectorAll('input[type=text]').forEach(function(inp){
@@ -513,6 +517,8 @@
     setRequired(blockBiz,false); setRequired(blockSav,false);
 
     if(!pkg){ show(placeholder); hide(whichSite); return; }
+
+    nextUrl.value = (pkg.value.indexOf('Complete') === 0) ? STRIPE_COMPLETE : STRIPE_SINGLE;
 
     if(pkg.value.indexOf('Complete') === 0){
       hide(whichSite);
