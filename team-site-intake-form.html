@@ -16,6 +16,10 @@
     --carolina:#4b9cd3;
     --carolina-deep:#2f7db3;
     --gold:#c9a54a;
+    --gold-bright:#e6cf93;
+    --gold-deep:#a98735;
+    --gold-glow:rgba(201,165,74,.22);
+    --ivory-gold:#fdfbf5;
     --ink:#2b2e33;
     --ink-soft:#5c6168;
     --line:#e3e6ea;
@@ -29,29 +33,51 @@
   }
   /* ── Header ─────────────────────────────── */
   .masthead{
-    background:linear-gradient(160deg,var(--charcoal-deep) 0%,var(--charcoal) 60%,#31353c 100%);
+    background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(75,156,211,.25),transparent 65%),linear-gradient(160deg,var(--charcoal-deep) 0%,var(--charcoal) 60%,#31353c 100%);
     color:var(--white);
-    padding:56px 24px 48px;
+    padding:56px 24px 52px;
     text-align:center;
-    border-bottom:4px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+    box-shadow:inset 0 -6px 0 var(--charcoal-deep), inset 0 -7px 0 rgba(201,165,74,.55), inset 0 -10px 0 var(--charcoal-deep), inset 0 -12px 0 rgba(75,156,211,.55);
   }
   .eyebrow{
     display:inline-block;
     font-size:12px;
     letter-spacing:.22em;
     text-transform:uppercase;
-    color:var(--gold);
-    border:1px solid rgba(201,165,74,.45);
+    color:var(--gold-bright);
+    border:1px solid rgba(201,165,74,.55);
     padding:6px 16px;
     border-radius:999px;
     margin-bottom:18px;
+    background:rgba(201,165,74,.08);
   }
   h1{
     font-family:'Marcellus',Georgia,serif;
     font-weight:400;
     font-size:clamp(28px,5vw,42px);
     letter-spacing:.01em;
-    margin-bottom:12px;
+    margin-bottom:16px;
+  }
+  .ornament{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    max-width:340px;
+    margin:0 auto 18px;
+    color:var(--gold);
+    font-size:13px;
+  }
+  .ornament::before,
+  .ornament::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(75,156,211,.85));
+  }
+  .ornament::after{
+    background:linear-gradient(90deg,rgba(75,156,211,.85),transparent);
   }
   .masthead p{
     max-width:600px;
@@ -59,18 +85,29 @@
     color:#c9cdd3;
     font-size:16px;
   }
-  .masthead p strong{color:var(--white);font-weight:600;}
+  .masthead p strong{color:var(--gold-bright);font-weight:600;}
   /* ── Form shell ─────────────────────────── */
   .wrap{max-width:680px;margin:-24px auto 64px;padding:0 20px;}
   form{
     background:var(--white);
     border-radius:14px;
-    box-shadow:0 12px 40px rgba(27,29,33,.12);
+    border:1px solid rgba(201,165,74,.35);
+    box-shadow:0 12px 40px rgba(27,29,33,.14);
     padding:8px 0 40px;
     overflow:hidden;
+    position:relative;
+  }
+  form::before{
+    content:"";
+    display:block;
+    height:5px;
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold) 30%,var(--gold-bright) 50%,var(--gold) 70%,var(--gold-deep));
   }
   fieldset{border:none;padding:32px 36px 8px;}
-  fieldset + fieldset{border-top:1px solid var(--line);}
+  fieldset + fieldset{
+    border-top:1px solid transparent;
+    border-image:linear-gradient(90deg,transparent 4%,rgba(201,165,74,.45) 50%,transparent 96%) 1;
+  }
   legend{
     display:flex;
     align-items:center;
@@ -82,10 +119,12 @@
   }
   .step-mark{
     flex:0 0 auto;
-    width:34px;height:34px;
+    width:36px;height:36px;
     border-radius:50%;
-    background:var(--charcoal);
-    color:var(--gold);
+    background:radial-gradient(circle at 30% 30%,#33373d,var(--charcoal-deep));
+    color:var(--gold-bright);
+    border:1px solid var(--gold);
+    box-shadow:0 0 0 3px var(--white), 0 0 0 5px rgba(75,156,211,.55);
     font-family:'Marcellus',Georgia,serif;
     font-size:16px;
     display:flex;align-items:center;justify-content:center;
@@ -94,14 +133,16 @@
     font-family:'Marcellus',Georgia,serif;
     font-size:22px;
     color:var(--charcoal);
+    padding-bottom:4px;
+    border-bottom:2px solid var(--gold);
   }
   .step-note{
     clear:both;
     font-size:14px;
     color:var(--ink-soft);
-    margin:4px 0 22px 48px;
+    margin:8px 0 22px 50px;
   }
-  .field{margin:0 0 22px 48px;}
+  .field{margin:0 0 22px 50px;}
   label{
     display:block;
     font-size:14px;
@@ -117,6 +158,7 @@
     color:var(--ink-soft);
     margin:-2px 0 8px;
   }
+  .hint strong{color:var(--carolina-deep);}
   input[type=text],input[type=email],input[type=tel],input[type=url],textarea{
     width:100%;
     padding:12px 14px;
@@ -126,12 +168,13 @@
     background:#fbfcfd;
     border:1px solid var(--line);
     border-radius:8px;
-    transition:border-color .15s, box-shadow .15s;
+    transition:border-color .15s, box-shadow .15s, background .15s;
   }
   input:focus,textarea:focus{
     outline:none;
     border-color:var(--carolina);
-    box-shadow:0 0 0 3px rgba(75,156,211,.18);
+    background:var(--white);
+    box-shadow:0 0 0 3px rgba(75,156,211,.22);
   }
   textarea{resize:vertical;min-height:96px;}
   .choices{display:flex;flex-direction:column;gap:10px;}
@@ -143,21 +186,24 @@
     border-radius:8px;
     background:#fbfcfd;
     cursor:pointer;
+    transition:border-color .15s, box-shadow .15s, background .15s;
   }
-  .choice input{margin-top:3px;accent-color:var(--carolina-deep);}
+  .choice:hover{border-color:rgba(75,156,211,.7);box-shadow:0 0 0 3px rgba(75,156,211,.12);}
+  .choice input{margin-top:3px;accent-color:var(--gold-deep);}
   .choice:has(input:checked){
-    border-color:var(--carolina);
-    box-shadow:0 0 0 3px rgba(75,156,211,.14);
-    background:var(--white);
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px var(--gold-glow);
+    background:var(--ivory-gold);
   }
-  .choice .choice-title{font-weight:600;display:block;}
+  .choice .choice-title{font-weight:600;display:block;font-family:'Marcellus',Georgia,serif;font-size:17px;color:var(--charcoal);}
   .choice .choice-sub{display:block;font-size:13px;color:var(--ink-soft);}
   .price-tag{
     display:inline-block;
     font-family:'Marcellus',Georgia,serif;
     font-size:18px;
-    color:var(--charcoal);
+    color:var(--charcoal-deep);
     background:linear-gradient(135deg,#f0e2bd,#e6cf93);
+    border:1px solid rgba(169,135,53,.4);
     border-radius:6px;
     padding:1px 10px;
     margin-left:6px;
@@ -174,14 +220,15 @@
     padding:2px 10px;
     margin-left:8px;
     vertical-align:middle;
+    font-family:'Inter',Arial,sans-serif;
   }
   .domain-block{
-    border:1px solid var(--line);
+    border:1px solid rgba(201,165,74,.4);
     border-left:4px solid var(--gold);
     border-radius:8px;
     padding:18px 18px 4px;
     margin-bottom:18px;
-    background:#fdfcf9;
+    background:var(--ivory-gold);
   }
   .domain-block h3{
     font-family:'Marcellus',Georgia,serif;
@@ -190,40 +237,59 @@
     color:var(--charcoal);
     margin-bottom:12px;
   }
+  .domain-block h3::before{
+    content:"✦";
+    color:var(--gold);
+    margin-right:8px;
+    font-size:13px;
+  }
   .domain-block .field{margin-left:0;}
+  .domain-block .field label{color:var(--carolina-deep);}
   .hidden{display:none;}
   /* ── Submit ─────────────────────────────── */
   .submit-zone{padding:28px 36px 0;text-align:center;}
+  .submit-zone::before{
+    content:"";
+    display:block;
+    height:1px;
+    max-width:340px;
+    margin:0 auto 28px;
+    background:linear-gradient(90deg,transparent,rgba(75,156,211,.6) 30%,rgba(201,165,74,.9) 50%,rgba(75,156,211,.6) 70%,transparent);
+  }
   button[type=submit]{
-    font-family:'Inter',Arial,sans-serif;
-    font-size:16px;
-    font-weight:600;
-    letter-spacing:.02em;
+    font-family:'Marcellus',Georgia,serif;
+    font-size:17px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
     color:var(--charcoal-deep);
-    background:linear-gradient(135deg,#d9b85f,var(--gold));
-    border:none;
+    background:linear-gradient(135deg,var(--gold-bright) 0%,#d9b85f 40%,var(--gold) 100%);
+    border:1px solid var(--gold-deep);
     border-radius:999px;
-    padding:15px 46px;
+    padding:15px 48px;
     cursor:pointer;
-    box-shadow:0 6px 18px rgba(201,165,74,.35);
+    box-shadow:0 6px 18px rgba(201,165,74,.4), inset 0 1px 0 rgba(255,255,255,.5);
     transition:transform .12s, box-shadow .12s;
   }
-  button[type=submit]:hover{transform:translateY(-1px);box-shadow:0 9px 24px rgba(201,165,74,.45);}
-  button[type=submit]:focus-visible{outline:3px solid var(--carolina);outline-offset:3px;}
+  button[type=submit]:hover{transform:translateY(-1px);box-shadow:0 9px 24px rgba(201,165,74,.5), inset 0 1px 0 rgba(255,255,255,.5);}
+  button[type=submit]:focus-visible{outline:3px solid var(--gold-deep);outline-offset:3px;}
   .assurance{font-size:13px;color:var(--ink-soft);margin-top:14px;}
   footer{
     text-align:center;
     font-size:13px;
-    color:var(--ink-soft);
-    padding:0 20px 48px;
+    color:#c9cdd3;
+    background:linear-gradient(160deg,var(--charcoal-deep),var(--charcoal));
+    border-top:1px solid rgba(201,165,74,.55);
+    box-shadow:inset 0 2px 0 rgba(75,156,211,.45);
+    padding:22px 20px;
   }
+  footer strong{color:var(--gold-bright);font-weight:600;}
   @media (max-width:560px){
     fieldset{padding:24px 20px 4px;}
     .field,.step-note{margin-left:0;}
     .submit-zone{padding:24px 20px 0;}
   }
   @media (prefers-reduced-motion: reduce){
-    button[type=submit]{transition:none;}
+    button[type=submit],.choice,input,textarea{transition:none;}
   }
 </style>
 </head>
@@ -232,6 +298,7 @@
 <header class="masthead">
   <span class="eyebrow">TPFN Team Onboarding</span>
   <h1>Your Personal Marketing Sites</h1>
+  <div class="ornament">✦</div>
   <p>Get your own professionally built TPFN marketing sites — the <strong>Business Opportunity site</strong> and the <strong>Savings Membership site</strong> — on your own custom domain, with every lead and every sign-up credited directly to <strong>you</strong>. Complete the steps below to place your order.</p>
 </header>
 
@@ -418,7 +485,7 @@
   </form>
 </div>
 
-<footer>Questions? Reply to the confirmation email and we'll help you out.</footer>
+<footer>Questions? Reply to the confirmation email and <strong>we'll help you out</strong>.</footer>
 
 <script>
 (function(){
