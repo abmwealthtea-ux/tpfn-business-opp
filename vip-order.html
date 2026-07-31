@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIP Marketing Site Order | TPFN Team</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#25282d;
+    --charcoal-deep:#1b1d21;
+    --cloud:#f5f6f8;
+    --white:#ffffff;
+    --carolina:#4b9cd3;
+    --carolina-deep:#2f7db3;
+    --gold:#c9a54a;
+    --gold-bright:#e6cf93;
+    --gold-deep:#a98735;
+    --gold-glow:rgba(201,165,74,.22);
+    --ivory-gold:#fdfbf5;
+    --ink:#2b2e33;
+    --ink-soft:#5c6168;
+    --line:#e3e6ea;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Inter',Arial,sans-serif;
+    background:var(--cloud);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  /* ── Header ─────────────────────────────── */
+  .masthead{
+    background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(75,156,211,.25),transparent 65%),linear-gradient(160deg,var(--charcoal-deep) 0%,var(--charcoal) 60%,#31353c 100%);
+    color:var(--white);
+    padding:56px 24px 52px;
+    text-align:center;
+    border-bottom:1px solid var(--gold);
+    box-shadow:inset 0 -6px 0 var(--charcoal-deep), inset 0 -7px 0 rgba(201,165,74,.55), inset 0 -10px 0 var(--charcoal-deep), inset 0 -12px 0 rgba(75,156,211,.55);
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold-bright);
+    border:1px solid rgba(201,165,74,.55);
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:18px;
+    background:rgba(201,165,74,.08);
+  }
+  h1{
+    font-family:'Marcellus',Georgia,serif;
+    font-weight:400;
+    font-size:clamp(28px,5vw,42px);
+    letter-spacing:.01em;
+    margin-bottom:16px;
+  }
+  .vip-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Marcellus',Georgia,serif;
+    font-size:15px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--charcoal-deep);
+    background:linear-gradient(135deg,var(--gold-bright) 0%,#d9b85f 40%,var(--gold) 100%);
+    border:1px solid var(--gold-deep);
+    border-radius:999px;
+    padding:9px 26px;
+    margin-bottom:18px;
+    box-shadow:0 6px 18px rgba(201,165,74,.4), inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  .ornament{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    max-width:340px;
+    margin:0 auto 18px;
+    color:var(--gold);
+    font-size:13px;
+  }
+  .ornament::before,
+  .ornament::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(75,156,211,.85));
+  }
+  .ornament::after{
+    background:linear-gradient(90deg,rgba(75,156,211,.85),transparent);
+  }
+  .masthead p{
+    max-width:640px;
+    margin:0 auto;
+    color:#c9cdd3;
+    font-size:16px;
+  }
+  .masthead p strong{color:var(--gold-bright);font-weight:600;}
+  /* ── Form shell ─────────────────────────── */
+  .wrap{max-width:680px;margin:-24px auto 64px;padding:0 20px;}
+  form{
+    background:var(--white);
+    border-radius:14px;
+    border:1px solid rgba(201,165,74,.35);
+    box-shadow:0 12px 40px rgba(27,29,33,.14);
+    padding:8px 0 40px;
+    overflow:hidden;
+    position:relative;
+  }
+  form::before{
+    content:"";
+    display:block;
+    height:5px;
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold) 30%,var(--gold-bright) 50%,var(--gold) 70%,var(--gold-deep));
+  }
+  fieldset{border:none;padding:32px 36px 8px;}
+  fieldset + fieldset{
+    border-top:1px solid transparent;
+    border-image:linear-gradient(90deg,transparent 4%,rgba(201,165,74,.45) 50%,transparent 96%) 1;
+  }
+  legend{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding-top:32px;
+    margin-bottom:6px;
+    float:left;
+    width:100%;
+  }
+  .step-mark{
+    flex:0 0 auto;
+    width:36px;height:36px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#33373d,var(--charcoal-deep));
+    color:var(--gold-bright);
+    border:1px solid var(--gold);
+    box-shadow:0 0 0 3px var(--white), 0 0 0 5px rgba(75,156,211,.55);
+    font-family:'Marcellus',Georgia,serif;
+    font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step-title{
+    font-family:'Marcellus',Georgia,serif;
+    font-size:22px;
+    color:var(--charcoal);
+    padding-bottom:4px;
+    border-bottom:2px solid var(--gold);
+  }
+  .step-note{
+    clear:both;
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:8px 0 22px 50px;
+  }
+  .field{margin:0 0 22px 50px;}
+  label{
+    display:block;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .optional{font-weight:400;color:var(--ink-soft);}
+  .hint{
+    display:block;
+    font-size:13px;
+    font-weight:400;
+    color:var(--ink-soft);
+    margin:-2px 0 8px;
+  }
+  .hint strong{color:var(--carolina-deep);}
+  input[type=text],input[type=email],input[type=tel],input[type=url],textarea{
+    width:100%;
+    padding:12px 14px;
+    font-family:'Inter',Arial,sans-serif;
+    font-size:15px;
+    color:var(--ink);
+    background:#fbfcfd;
+    border:1px solid var(--line);
+    border-radius:8px;
+    transition:border-color .15s, box-shadow .15s, background .15s;
+  }
+  input:focus,textarea:focus{
+    outline:none;
+    border-color:var(--carolina);
+    background:var(--white);
+    box-shadow:0 0 0 3px rgba(75,156,211,.22);
+  }
+  textarea{resize:vertical;min-height:96px;}
+  .choices{display:flex;flex-direction:column;gap:10px;}
+  .choice{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:15px;font-weight:400;
+    padding:14px 14px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#fbfcfd;
+    cursor:pointer;
+    transition:border-color .15s, box-shadow .15s, background .15s;
+  }
+  .choice:hover{border-color:rgba(75,156,211,.7);box-shadow:0 0 0 3px rgba(75,156,211,.12);}
+  .choice input{margin-top:3px;accent-color:var(--gold-deep);}
+  .choice:has(input:checked){
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px var(--gold-glow);
+    background:var(--ivory-gold);
+  }
+  /* ── VIP package card ───────────────────── */
+  .vip-package{
+    margin:0 0 22px 50px;
+    border:1px solid var(--gold);
+    border-radius:10px;
+    background:var(--ivory-gold);
+    box-shadow:0 0 0 3px var(--gold-glow);
+    padding:22px 22px 18px;
+    position:relative;
+  }
+  .paid-stamp{
+    position:absolute;
+    top:-13px;
+    right:18px;
+    font-family:'Inter',Arial,sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--white);
+    background:linear-gradient(135deg,#2e8b57,#1f6b41);
+    border-radius:999px;
+    padding:5px 16px;
+    box-shadow:0 4px 12px rgba(31,107,65,.35);
+  }
+  .vip-package .pkg-title{
+    font-family:'Marcellus',Georgia,serif;
+    font-size:20px;
+    color:var(--charcoal);
+    margin-bottom:6px;
+  }
+  .price-line{
+    font-size:15px;
+    margin-bottom:10px;
+  }
+  .price-was{
+    text-decoration:line-through;
+    color:var(--ink-soft);
+  }
+  .price-now{
+    font-family:'Marcellus',Georgia,serif;
+    font-size:19px;
+    color:var(--gold-deep);
+    margin-left:8px;
+  }
+  .price-paid{
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#1f6b41;
+    margin-left:8px;
+  }
+  .vip-package ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .vip-package li{
+    font-size:14px;
+    color:var(--ink);
+    padding:5px 0 5px 26px;
+    position:relative;
+  }
+  .vip-package li::before{
+    content:"✓";
+    position:absolute;
+    left:2px;
+    color:var(--gold-deep);
+    font-weight:600;
+  }
+  .action-taker-note{
+    margin:14px 0 0;
+    padding:12px 14px;
+    border-left:3px solid var(--carolina);
+    background:rgba(75,156,211,.08);
+    border-radius:0 8px 8px 0;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .action-taker-note strong{color:var(--carolina-deep);}
+  .domain-block{
+    border:1px solid rgba(201,165,74,.4);
+    border-left:4px solid var(--gold);
+    border-radius:8px;
+    padding:18px 18px 4px;
+    margin:0 0 18px 50px;
+    background:var(--ivory-gold);
+  }
+  .domain-block h3{
+    font-family:'Marcellus',Georgia,serif;
+    font-weight:400;
+    font-size:17px;
+    color:var(--charcoal);
+    margin-bottom:12px;
+  }
+  .domain-block h3::before{
+    content:"✦";
+    color:var(--gold);
+    margin-right:8px;
+    font-size:13px;
+  }
+  .domain-block .field{margin-left:0;}
+  .domain-block .field label{color:var(--carolina-deep);}
+  /* ── Submit ─────────────────────────────── */
+  .submit-zone{padding:28px 36px 0;text-align:center;}
+  .submit-zone::before{
+    content:"";
+    display:block;
+    height:1px;
+    max-width:340px;
+    margin:0 auto 28px;
+    background:linear-gradient(90deg,transparent,rgba(75,156,211,.6) 30%,rgba(201,165,74,.9) 50%,rgba(75,156,211,.6) 70%,transparent);
+  }
+  button[type=submit]{
+    font-family:'Marcellus',Georgia,serif;
+    font-size:17px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--charcoal-deep);
+    background:linear-gradient(135deg,var(--gold-bright) 0%,#d9b85f 40%,var(--gold) 100%);
+    border:1px solid var(--gold-deep);
+    border-radius:999px;
+    padding:15px 48px;
+    cursor:pointer;
+    box-shadow:0 6px 18px rgba(201,165,74,.4), inset 0 1px 0 rgba(255,255,255,.5);
+    transition:transform .12s, box-shadow .12s;
+  }
+  button[type=submit]:hover{transform:translateY(-1px);box-shadow:0 9px 24px rgba(201,165,74,.5), inset 0 1px 0 rgba(255,255,255,.5);}
+  button[type=submit]:focus-visible{outline:3px solid var(--gold-deep);outline-offset:3px;}
+  .assurance{font-size:13px;color:var(--ink-soft);margin-top:14px;}
+  .assurance strong{color:var(--gold-deep);}
+  footer{
+    text-align:center;
+    font-size:13px;
+    color:#c9cdd3;
+    background:linear-gradient(160deg,var(--charcoal-deep),var(--charcoal));
+    border-top:1px solid rgba(201,165,74,.55);
+    box-shadow:inset 0 2px 0 rgba(75,156,211,.45);
+    padding:22px 20px;
+  }
+  footer strong{color:var(--gold-bright);font-weight:600;}
+  @media (max-width:560px){
+    fieldset{padding:24px 20px 4px;}
+    .field,.step-note{margin-left:0;}
+    .vip-package{margin-left:0;}
+    .domain-block{margin-left:0;}
+    .submit-zone{padding:24px 20px 0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    button[type=submit],.choice,input,textarea{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <span class="eyebrow">VIP Client Onboarding</span>
+  <h1>Your Personal Marketing Sites</h1>
+  <div class="vip-badge">✦ &nbsp;Paid in Full — Complete Package&nbsp; ✦</div>
+  <div class="ornament">✦</div>
+  <p>Congratulations — and welcome, VIP. As one of our <strong>action takers</strong>, you secured the full <strong>$299 Complete Package</strong> at your exclusive Action Taker price, and it's <strong>already paid in full</strong>. No payment is needed today. Just complete the steps below so we can start building your sites.</p>
+</header>
+
+<div class="wrap">
+  <form action="https://formsubmit.co/abmwealthtea@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="★ VIP PREPAID Order — Complete Package (Action Taker)">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://tpfn-biz-opp.com/vip-thankyou.html">
+    <input type="hidden" name="Package" value="Complete Package — PREPAID VIP (Action Taker special $60, PAID IN FULL — do not bill)">
+    <input type="text" name="_honey" style="display:none">
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">1</span>
+        <span class="step-title">About You</span>
+      </legend>
+      <p class="step-note">Tell us who you are and how to reach you.</p>
+
+      <div class="field">
+        <label for="fullname">Full name</label>
+        <input type="text" id="fullname" name="Full Name" required autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="displayname">Name to display on your site(s)</label>
+        <span class="hint">Exactly how you want visitors to see it — for example: "Coach Mike" or "John A. Smith"</span>
+        <input type="text" id="displayname" name="Display Name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Best email address</label>
+        <span class="hint">Every lead from your sites will be delivered to this inbox, so choose one you check daily.</span>
+        <input type="email" id="email" name="Lead Email" required autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone number <span class="optional">(optional)</span></label>
+        <span class="hint">Only needed if you want it shown on your sites.</span>
+        <input type="tel" id="phone" name="Phone" autocomplete="tel">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">2</span>
+        <span class="step-title">Your TPFN Links</span>
+      </legend>
+      <p class="step-note">This step makes sure every sign-up is credited to <em>you</em>. Log in to your TPFN back office to find these.</p>
+
+      <div class="field">
+        <label for="username">Your TPFN username</label>
+        <span class="hint">The name that appears in your personal links — for example, in <strong>coacht</strong>.tpfn.fyi the username is "coacht".</span>
+        <input type="text" id="username" name="TPFN Username" required>
+      </div>
+
+      <div class="field">
+        <label for="fyi">Your personal sign-up link</label>
+        <span class="hint">Copy and paste it here so we can double-check it. It looks like: https://yourname.tpfn.fyi</span>
+        <input type="url" id="fyi" name="Sign-Up Link (tpfn.fyi)" placeholder="https://" required>
+      </div>
+
+      <div class="field">
+        <label for="biz">Your replicated site link</label>
+        <span class="hint">It looks like: https://yourname.tpfn.biz</span>
+        <input type="url" id="biz" name="Replicated Site Link (tpfn.biz)" placeholder="https://" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">3</span>
+        <span class="step-title">Your Package — Confirmed</span>
+      </legend>
+      <p class="step-note">Nothing to choose here — your package is locked in and fully paid.</p>
+
+      <div class="vip-package">
+        <span class="paid-stamp">Paid in Full</span>
+        <div class="pkg-title">Complete Package</div>
+        <div class="price-line">
+          <span class="price-was">$299</span>
+          <span class="price-now">Your Action Taker Price: $60</span>
+          <span class="price-paid">✓ Paid</span>
+        </div>
+        <ul>
+          <li>Business Opportunity site — professionally built with your links</li>
+          <li>Savings Membership site — professionally built with your links</li>
+          <li>2 custom domains of your choice, registered for you</li>
+          <li>12 months of hosting for both sites — included</li>
+        </ul>
+        <div class="action-taker-note">
+          <strong>Why the special price?</strong> You moved when the opportunity was in front of you. Action takers build businesses — this is our way of rewarding yours. Enjoy it; this price isn't offered publicly.
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">4</span>
+        <span class="step-title">Your Domain Names</span>
+      </legend>
+      <p class="step-note">Your domain is your site's web address — for example, <strong>mikessavingsclub.com</strong>. Give us <strong>3 name ideas in order of preference</strong> for each site. If your first choice is already taken, we'll register the next one on your list.</p>
+
+      <div class="domain-block">
+        <h3>Business Opportunity Site — Domain Choices</h3>
+        <div class="field">
+          <label for="biz1">1st choice</label>
+          <input type="text" id="biz1" name="Biz Opp Domain - 1st Choice" placeholder="example: earnwithmike.com" required>
+        </div>
+        <div class="field">
+          <label for="biz2">2nd choice</label>
+          <input type="text" id="biz2" name="Biz Opp Domain - 2nd Choice" required>
+        </div>
+        <div class="field">
+          <label for="biz3">3rd choice</label>
+          <input type="text" id="biz3" name="Biz Opp Domain - 3rd Choice" required>
+        </div>
+      </div>
+
+      <div class="domain-block">
+        <h3>Savings Membership Site — Domain Choices</h3>
+        <div class="field">
+          <label for="sav1">1st choice</label>
+          <input type="text" id="sav1" name="Savings Domain - 1st Choice" placeholder="example: mikessavingsclub.com" required>
+        </div>
+        <div class="field">
+          <label for="sav2">2nd choice</label>
+          <input type="text" id="sav2" name="Savings Domain - 2nd Choice" required>
+        </div>
+        <div class="field">
+          <label for="sav3">3rd choice</label>
+          <input type="text" id="sav3" name="Savings Domain - 3rd Choice" required>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+        <span class="step-mark">5</span>
+        <span class="step-title">Finishing Touches</span>
+      </legend>
+      <p class="step-note">A couple of quick choices, then you're done.</p>
+
+      <div class="field">
+        <label>Would you like your photo on your sites?</label>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="Photo Preference" value="Yes - I will send a photo" required> Yes — I'll send a professional photo when asked</label>
+          <label class="choice"><input type="radio" name="Photo Preference" value="No - keep the standard design"> No — keep the standard site design</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything else we should know? <span class="optional">(optional)</span></label>
+        <textarea id="notes" name="Notes" placeholder="Special requests, questions, or details…"></textarea>
+      </div>
+    </fieldset>
+
+    <div class="submit-zone">
+      <button type="submit">Confirm My VIP Order</button>
+      <p class="assurance"><strong>No payment is needed — your package is already paid in full.</strong> Your build begins as soon as you confirm. Your information is used only to build your personal marketing sites — nothing is shared or sold.</p>
+    </div>
+  </form>
+</div>
+
+<footer>Questions? Reply to the confirmation email and <strong>we'll help you out</strong>.</footer>
+
+</body>
+</html>

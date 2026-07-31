@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're All Set | TPFN Team</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#25282d;
+    --charcoal-deep:#1b1d21;
+    --cloud:#f5f6f8;
+    --white:#ffffff;
+    --carolina:#4b9cd3;
+    --carolina-deep:#2f7db3;
+    --gold:#c9a54a;
+    --gold-bright:#e6cf93;
+    --gold-deep:#a98735;
+    --gold-glow:rgba(201,165,74,.22);
+    --ivory-gold:#fdfbf5;
+    --ink:#2b2e33;
+    --ink-soft:#5c6168;
+    --line:#e3e6ea;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Inter',Arial,sans-serif;
+    background:var(--cloud);
+    color:var(--ink);
+    line-height:1.6;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  .masthead{
+    background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(75,156,211,.25),transparent 65%),linear-gradient(160deg,var(--charcoal-deep) 0%,var(--charcoal) 60%,#31353c 100%);
+    color:var(--white);
+    padding:64px 24px 60px;
+    text-align:center;
+    border-bottom:1px solid var(--gold);
+    box-shadow:inset 0 -6px 0 var(--charcoal-deep), inset 0 -7px 0 rgba(201,165,74,.55), inset 0 -10px 0 var(--charcoal-deep), inset 0 -12px 0 rgba(75,156,211,.55);
+  }
+  .check-ring{
+    width:84px;height:84px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#33373d,var(--charcoal-deep));
+    border:1px solid var(--gold);
+    box-shadow:0 0 0 4px rgba(201,165,74,.18), 0 0 0 7px rgba(75,156,211,.28), 0 10px 30px rgba(0,0,0,.4);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .check-ring svg{width:40px;height:40px;stroke:var(--gold-bright);}
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold-bright);
+    border:1px solid rgba(201,165,74,.55);
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:18px;
+    background:rgba(201,165,74,.08);
+  }
+  h1{
+    font-family:'Marcellus',Georgia,serif;
+    font-weight:400;
+    font-size:clamp(28px,5vw,44px);
+    letter-spacing:.01em;
+    margin-bottom:14px;
+  }
+  .masthead p{
+    max-width:600px;
+    margin:0 auto;
+    color:#c9cdd3;
+    font-size:16px;
+  }
+  .masthead p strong{color:var(--gold-bright);font-weight:600;}
+  .wrap{max-width:680px;margin:-24px auto 64px;padding:0 20px;flex:1;width:100%;}
+  .card{
+    background:var(--white);
+    border-radius:14px;
+    border:1px solid rgba(201,165,74,.35);
+    box-shadow:0 12px 40px rgba(27,29,33,.14);
+    overflow:hidden;
+    padding:0 36px 36px;
+  }
+  .card::before{
+    content:"";
+    display:block;
+    height:5px;
+    margin:0 -36px;
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold) 30%,var(--gold-bright) 50%,var(--gold) 70%,var(--gold-deep));
+  }
+  .card h2{
+    font-family:'Marcellus',Georgia,serif;
+    font-weight:400;
+    font-size:24px;
+    color:var(--charcoal);
+    margin:32px 0 6px;
+  }
+  .card > p{color:var(--ink-soft);font-size:15px;margin-bottom:24px;}
+  .steps{list-style:none;}
+  .steps li{
+    display:flex;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid transparent;
+    border-image:linear-gradient(90deg,transparent 4%,rgba(201,165,74,.35) 50%,transparent 96%) 1;
+  }
+  .steps li:last-child{border:none;}
+  .step-mark{
+    flex:0 0 auto;
+    width:36px;height:36px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#33373d,var(--charcoal-deep));
+    color:var(--gold-bright);
+    border:1px solid var(--gold);
+    box-shadow:0 0 0 3px var(--white), 0 0 0 5px rgba(75,156,211,.55);
+    font-family:'Marcellus',Georgia,serif;
+    font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .steps .step-body strong{
+    display:block;
+    font-family:'Marcellus',Georgia,serif;
+    font-weight:400;
+    font-size:17px;
+    color:var(--charcoal);
+  }
+  .steps .step-body span{font-size:14px;color:var(--ink-soft);}
+  .vip-note{
+    margin-top:24px;
+    padding:16px 18px;
+    border-left:4px solid var(--gold);
+    background:var(--ivory-gold);
+    border-radius:0 10px 10px 0;
+    font-size:14px;
+  }
+  .vip-note strong{color:var(--gold-deep);}
+  .home-btn{
+    display:inline-block;
+    margin-top:28px;
+    font-family:'Marcellus',Georgia,serif;
+    font-size:15px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--charcoal-deep);
+    text-decoration:none;
+    background:linear-gradient(135deg,var(--gold-bright) 0%,#d9b85f 40%,var(--gold) 100%);
+    border:1px solid var(--gold-deep);
+    border-radius:999px;
+    padding:13px 36px;
+    box-shadow:0 6px 18px rgba(201,165,74,.4), inset 0 1px 0 rgba(255,255,255,.5);
+    transition:transform .12s, box-shadow .12s;
+  }
+  .home-btn:hover{transform:translateY(-1px);box-shadow:0 9px 24px rgba(201,165,74,.5), inset 0 1px 0 rgba(255,255,255,.5);}
+  footer{
+    text-align:center;
+    font-size:13px;
+    color:#c9cdd3;
+    background:linear-gradient(160deg,var(--charcoal-deep),var(--charcoal));
+    border-top:1px solid rgba(201,165,74,.55);
+    box-shadow:inset 0 2px 0 rgba(75,156,211,.45);
+    padding:22px 20px;
+  }
+  footer strong{color:var(--gold-bright);font-weight:600;}
+  @media (max-width:560px){
+    .card{padding:0 20px 28px;}
+    .card::before{margin:0 -20px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .home-btn{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="check-ring">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+  </div>
+  <span class="eyebrow">Order Confirmed</span>
+  <h1>You're All Set, VIP</h1>
+  <p>Your order is in our hands and your <strong>Complete Package is paid in full</strong>. Your sites are now officially in production.</p>
+</header>
+
+<div class="wrap">
+  <div class="card">
+    <h2>What Happens Next</h2>
+    <p>Here's exactly how your build unfolds from this moment:</p>
+    <ul class="steps">
+      <li>
+        <span class="step-mark">1</span>
+        <span class="step-body">
+          <strong>We review your details</strong>
+          <span>We verify your TPFN links so every lead and sign-up is credited to you, and check the availability of your domain choices.</span>
+        </span>
+      </li>
+      <li>
+        <span class="step-mark">2</span>
+        <span class="step-body">
+          <strong>Your domains are registered</strong>
+          <span>We secure your custom web addresses — starting with your first choices — and connect them to your new sites.</span>
+        </span>
+      </li>
+      <li>
+        <span class="step-mark">3</span>
+        <span class="step-body">
+          <strong>Your sites go live</strong>
+          <span>Both sites are professionally built, personalized with your name and links, and delivered to your inbox with everything you need to start sharing them.</span>
+        </span>
+      </li>
+    </ul>
+    <div class="vip-note">
+      <strong>A note just for you:</strong> you earned this. Taking action while others are still thinking it over is exactly how businesses get built — and your Action Taker price is our way of honoring that. Watch your inbox; we'll be in touch soon.
+    </div>
+    <a class="home-btn" href="https://tpfn-biz-opp.com">Return to the Site</a>
+  </div>
+</div>
+
+<footer>Questions? Reply to the confirmation email and <strong>we'll help you out</strong>.</footer>
+
+</body>
+</html>
