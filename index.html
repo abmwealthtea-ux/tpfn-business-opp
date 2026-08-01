@@ -465,6 +465,64 @@
   .zoom-table td.day{font-family:var(--serif);color:var(--gold-soft)}
 
   /* final cta */
+  /* ---------- your sites ---------- */
+  .sites-band{
+    background:var(--char-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .sites-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+    max-width:920px;margin:0 auto 34px;
+  }
+  @media(max-width:900px){.sites-grid{grid-template-columns:1fr}}
+  .site-card{
+    position:relative;
+    background:var(--char-3);
+    border:1px solid rgba(201,164,76,0.45);
+    border-top:3px solid var(--gold);
+    border-radius:10px;
+    padding:28px 26px;
+  }
+  .site-card .badge{
+    position:absolute;top:-12px;right:18px;
+    background:var(--gold);color:#16181C;
+    font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;
+    font-weight:700;padding:5px 12px;border-radius:999px;
+  }
+  .site-card h3{
+    font-family:var(--serif);font-weight:400;color:#fff;
+    font-size:1.25rem;margin-bottom:4px;
+  }
+  .site-card .price{
+    font-family:var(--serif);color:var(--gold);
+    font-size:2rem;margin-bottom:12px;
+  }
+  .site-card .price small{font-family:var(--sans);font-size:0.85rem;color:var(--muted)}
+  .site-card ul{list-style:none;margin:0 0 6px;padding:0}
+  .site-card li{
+    position:relative;padding:7px 0 7px 22px;
+    color:var(--muted);font-size:0.95rem;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .site-card li:last-child{border-bottom:none}
+  .site-card li::before{
+    content:"";position:absolute;left:2px;top:14px;
+    width:8px;height:8px;border:1px solid var(--gold);
+    transform:rotate(45deg);
+  }
+  .site-card.blue{
+    border:1px solid rgba(75,156,211,0.45);
+    border-top:3px solid var(--carolina);
+  }
+  .site-card.blue .price{color:var(--carolina-soft)}
+  .site-card.blue li::before{border-color:var(--carolina)}
+  .sites-cta{text-align:center}
+  .sites-note{
+    text-align:center;color:var(--muted);
+    font-size:0.85rem;margin-top:14px;
+  }
+
   .final{
     text-align:center;
     padding:clamp(70px,9vw,120px) 24px;
@@ -590,6 +648,7 @@
       <a href="#approach">Approach</a>
       <a href="#experience">Experience</a>
       <a href="#success">Success</a>
+      <a href="#your-sites">Your Sites</a>
       <a class="btn btn-hollow head-cta" href="https://coacht.tpfn.fyi" target="_blank" rel="noopener">Start Today</a>
     </nav>
   </div>
@@ -1609,6 +1668,41 @@
 </section>
 
 </div><!-- /path-wrap -->
+
+<!-- YOUR SITES -->
+<section class="act sites-band" id="your-sites">
+  <div class="act-marker reveal"><span>Your Websites</span></div>
+  <h2 class="reveal">Ready to build? Get these sites <em class="blue">working for you.</em></h2>
+  <p class="act-lede reveal">Everything you just experienced — the video, the income plan, the lead forms — can be yours. Your own professionally built marketing sites, on your own custom domain, with every lead and every sign-up credited directly to <b style="color:var(--carolina-soft)">you</b>. Done for you, so you can focus on building your team.</p>
+
+  <div class="sites-grid">
+    <div class="site-card reveal">
+      <span class="badge">Best Value</span>
+      <h3>Complete Package</h3>
+      <p class="price">$299 <small>one-time</small></p>
+      <ul>
+        <li>Both sites — the Business Opportunity site and the Savings Membership site</li>
+        <li>2 custom domains of your choice</li>
+        <li>12 months of hosting for both sites included</li>
+        <li>Built with your name, your links, and your leads delivered to your inbox</li>
+      </ul>
+    </div>
+    <div class="site-card blue reveal">
+      <h3>Single Site</h3>
+      <p class="price">$134 <small>due today, then $10/month</small></p>
+      <ul>
+        <li>One site of your choice — Business Opportunity or Savings Membership</li>
+        <li>$99 setup + $25 custom domain + $10/month hosting</li>
+        <li>Built with your name, your links, and your leads delivered to your inbox</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sites-cta reveal">
+    <a class="btn btn-gold" href="https://tpfn-biz-opp.com/team-site-intake-form.html">Order My Websites</a>
+    <p class="sites-note">You'll complete a short order form, then go straight to secure Stripe checkout. Your build begins as soon as payment is received.</p>
+  </div>
+</section>
 
 <!-- FINAL CTA -->
 <section class="final">
