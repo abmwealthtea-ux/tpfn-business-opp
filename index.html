@@ -387,6 +387,29 @@
   }
   .video-ctas{margin-top:38px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
+  /* ---------- company comp-plan video ---------- */
+  .comp-video{margin-top:64px}
+  .comp-video h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1.5rem,3.4vw,2.1rem);
+    font-weight:600;color:var(--ivory);margin-bottom:10px;
+  }
+  .comp-video h3 em{font-style:normal;color:var(--gold)}
+  .comp-video .sub{color:var(--muted);margin-bottom:30px}
+  .video-embed.yt{aspect-ratio:16/9}
+  @media(max-width:640px){.video-embed.yt{aspect-ratio:16/9}}
+  @media(max-width:420px){.video-embed.yt{aspect-ratio:16/9}}
+  .comp-disclaimer{
+    margin-top:22px;
+    padding:16px 22px;
+    border:1px solid rgba(239,190,69,0.35);
+    border-radius:8px;
+    background:rgba(16,18,22,0.6);
+    font-size:0.8rem;line-height:1.65;color:var(--muted);
+    text-align:left;
+  }
+  .comp-disclaimer b{color:var(--gold-soft)}
+
   /* ---------- success ---------- */
   .success-grid{
     display:grid;grid-template-columns:0.9fr 1.1fr;gap:44px;align-items:center;
@@ -1456,6 +1479,20 @@
     <div class="video-ctas">
       <a class="btn btn-gold" href="https://coacht.tpfn.fyi" target="_blank" rel="noopener">Start Your Business</a>
       <a class="btn btn-line" href="https://coacht.tpfn.biz" target="_blank" rel="noopener">Visit the Full Site</a>
+    </div>
+
+    <!-- COMPANY COMPENSATION PLAN VIDEO -->
+    <div class="comp-video reveal">
+      <h3>How the Compensation Plan <em>Works</em></h3>
+      <p class="sub">Straight from the company — a closer look at how members are paid under the Community Income Plan.</p>
+      <div class="video-frame">
+        <div class="video-embed yt">
+          <iframe title="TPFN Compensation Plan Video" src="https://www.youtube-nocookie.com/embed/Lc-AvdHDa2U?rel=0&modestbranding=1&loop=1&playlist=Lc-AvdHDa2U" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="comp-disclaimer">
+        <b>Income Disclaimer:</b> Any figures or examples shown in this video are illustrations of the compensation plan only and are <b>not a guarantee, promise, or projection of earnings</b>. TPFN membership is not an investment and does not produce passive income. Results depend entirely on your own personal effort, skill, and consistency. Many members earn little or no income. Please evaluate this opportunity carefully and make the decision that is right for you.
+      </div>
     </div>
 
     <div class="info-band reveal">
