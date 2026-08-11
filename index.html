@@ -58,7 +58,7 @@
   .wordmark small{
     font-family:var(--sans);
     font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;
-    color:var(--muted);margin-left:4px;
+    color:var(--carolina-soft);font-weight:700;margin-left:4px;
   }
   @media(max-width:900px){.wordmark small{display:none}}
   .btn-hollow{
@@ -76,9 +76,14 @@
   }
   .head-nav{display:flex;gap:26px;align-items:center}
   .head-nav a{
-    font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
+    font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;
+    color:#fff;font-weight:700;
+    transition:color .25s ease, text-shadow .25s ease;
   }
-  .head-nav a:hover{color:var(--carolina-soft)}
+  .head-nav a:hover{
+    color:var(--carolina-soft);
+    text-shadow:0 0 10px rgba(75,156,211,1), 0 0 22px rgba(75,156,211,0.75), 0 0 40px rgba(75,156,211,0.45);
+  }
   .btn{
     display:inline-block;
     font-family:var(--sans);font-weight:700;font-size:0.9rem;
